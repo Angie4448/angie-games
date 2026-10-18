@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Angie's Games</title>
+<style>
+:root{
+  --bg:#070C14; --ink:#E9EFF7; --dim:#7E92A8; --gold:#D4AF6A; --blue:#4C8ED6;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:var(--sans);color:var(--ink);min-height:100vh;
+  background:
+    radial-gradient(1400px 800px at 70% -20%,rgba(76,142,214,.16),transparent 65%),
+    radial-gradient(1000px 700px at 0% 110%,rgba(212,175,106,.10),transparent 65%),
+    var(--bg);
+}
+.wrap{max-width:1180px;margin:0 auto;padding:64px 28px 90px}
+header{text-align:center;margin-bottom:54px}
+.mark{width:44px;height:44px;margin:0 auto 22px;border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;color:var(--gold)}
+h1{font-family:var(--serif);font-size:clamp(30px,4.4vw,50px);font-weight:400;letter-spacing:.04em}
+h1 em{font-style:normal;color:var(--gold)}
+.sub{margin-top:14px;color:var(--dim);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}
+.rule{width:220px;height:1px;margin:30px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(430px,1fr));gap:26px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+
+.game{
+  position:relative;display:block;text-decoration:none;color:inherit;overflow:hidden;
+  border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.02);
+  transition:.28s cubic-bezier(.2,.8,.3,1);
+}
+.game:hover{transform:translateY(-5px);border-color:rgba(212,175,106,.55);
+  box-shadow:0 24px 60px rgba(0,0,0,.55)}
+.shot{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0d1520}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .8s cubic-bezier(.2,.8,.3,1);opacity:.92}
+.game:hover .shot img{transform:scale(1.045);opacity:1}
+.shot::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,12,20,.05) 40%,rgba(7,12,20,.92) 100%)}
+.soon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:var(--dim);font-size:12px;letter-spacing:.24em;text-transform:uppercase}
+.meta{position:relative;padding:20px 22px 24px;margin-top:-56px;z-index:2}
+.tag{display:inline-block;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(212,175,106,.35);padding:3px 9px;margin-bottom:12px}
+.game h2{font-family:var(--serif);font-size:23px;font-weight:400;letter-spacing:.02em;margin-bottom:7px}
+.game p{font-size:12.5px;line-height:1.75;color:var(--dim)}
+.go{margin-top:16px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);
+  display:flex;align-items:center;gap:8px;transition:.2s}
+.game:hover .go{color:var(--gold);gap:14px}
+.go b{font-weight:400}
+
+footer{margin-top:64px;padding-top:26px;border-top:1px solid rgba(255,255,255,.07);
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-size:11px;color:var(--dim);letter-spacing:.04em}
+footer a{color:var(--dim);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.14)}
+footer a:hover{color:var(--gold);border-color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="mark">A</div>
+    <h1>Angie's <em>Games</em></h1>
+    <div class="sub">Small worlds, built by hand</div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="grid">
+
+    <a class="game" href="machu-picchu/">
+      <div class="shot">
+        <img src="assets/machu-terraces.png" alt="Machu Picchu terraces">
+      </div>
+      <div class="meta">
+        <span class="tag">3D · Mobile</span>
+        <h2>Machu Picchu</h2>
+        <p>An open-world walk through the Inca citadel — terraced flanks, the Urubamba gorge,
+           a sea of cloud at dawn, and a paraglider to get you down there.
+           Built with procedural terrain and a toon-shaded renderer.</p>
+        <div class="go">Play <b>→</b></div>
+      </div>
+    </a>
+
+    <a class="game" href="fudan-phd/">
+      <div class="shot">
+        <img src="assets/phd-accepted.png" alt="Fudan PhD Simulator">
+      </div>
+      <div class="meta">
+        <span class="tag">Browser · Desktop</span>
+        <h2>Fudan PhD Simulator</h2>
+        <p>Four years at Handan Road, 48 months, five fields of study.
+           Submit to Nature, Science, Cell or a CSSCI journal — and watch every single one
+           come back accepted.</p>
+        <div class="go">Play <b>→</b></div>
+      </div>
+    </a>
+
+  </div>
+
+  <footer>
+    <span>© <span id="yr"></span> Angie · Built with three.js and vanilla JS</span>
+    <span><a href="https://github.com/Angie4448/angie-games">Source on GitHub</a></span>
+  </footer>
+</div>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
